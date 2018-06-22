@@ -142,6 +142,8 @@ def write_dict(name):
     def write(builder, pairs):
         builder.start(name, dict())
         for k, v in pairs.iteritems():
+            if k == 'port':
+                v = str(v)
             builder.start("entry", dict(key=k))
             v = v if isinstance(v, basestring) else str(v)
             builder.data(v)
